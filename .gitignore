@@ -1,0 +1,12 @@
+# gerado por build/inline.py
+dist/
+
+# Windows / OneDrive
+Thumbs.db
+desktop.ini
+*.tmp
+
+# editores
+.vscode/
+.idea/
+.claude/

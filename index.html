@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Smart Burger - hamburgueria em Osasco, Carapicuiba, Alphaville e Sao Francisco. Previa de conceito.">
+<title>Smart Burger Oz</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap">
+<style>
+:root{
+  --char:#120E0B; --char2:#1C1613; --char3:#271E19; --line:#3A2C24;
+  --paper:#F6F0E6; --dim:#B5A79A; --dim2:#8A7C71;
+  --mostarda:#F0B429; --brasa:#D63B18; --picles:#93A626;
+  --disp:"Anton","Arial Narrow",Impact,sans-serif;
+  --body:"Rubik","Segoe UI",system-ui,sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--char);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mostarda);outline-offset:3px}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:400;line-height:.92;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+p{margin:0}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:24px}
+.eyebrow{font-family:var(--cond);font-weight:700;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mostarda)}
+.lede{color:var(--dim);max-width:60ch}
+
+/* ---------- demo strip ---------- */
+.demo{background:var(--mostarda);color:#231803;font-family:var(--cond);font-weight:600;font-size:.92rem;letter-spacing:.04em;text-align:center;padding:8px 24px}
+.demo b{font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+@media(max-width:560px){.demo{font-size:.8rem;padding:7px 16px;line-height:1.45}}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,14,11,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.brand .mk{width:38px;height:38px;flex:0 0 38px;border-radius:50%;background:var(--brasa);display:grid;place-items:center;font-family:var(--disp);font-size:1rem;color:var(--paper);letter-spacing:-.02em}
+.brand .wm{font-family:var(--disp);font-size:1.28rem;line-height:1}
+.brand .wm i{font-style:normal;color:var(--mostarda)}
+.nav nav{display:flex;gap:26px}
+.nav nav a{font-family:var(--cond);font-weight:600;font-size:1.02rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--dim)}
+.nav nav a:hover{color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--cond);font-weight:700;font-size:1.04rem;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;padding:12px 22px;border:0;cursor:pointer;background:var(--brasa);color:#fff;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:transform .16s,background .16s}
+.btn:hover{background:#E8481F;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.ghost:hover{background:var(--char3);box-shadow:inset 0 0 0 2px var(--mostarda)}
+.btn.small{padding:9px 15px;font-size:.9rem}
+@media(max-width:880px){.nav nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(70% 90% at 88% 30%,rgba(214,59,24,.30),transparent 62%),
+  radial-gradient(50% 70% at 8% 92%,rgba(240,180,41,.14),transparent 65%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;padding-block:76px 84px}
+.h-kick{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.h-kick span{font-family:var(--cond);font-weight:600;font-size:.88rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.h-kick em{font-style:normal;width:34px;height:2px;background:var(--mostarda)}
+.hero h1{font-size:clamp(3.1rem,7.4vw,5.6rem)}
+.hero h1 u{text-decoration:none;color:var(--mostarda)}
+.hero .lede{margin-top:22px;font-size:1.08rem}
+.h-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.h-note{margin-top:18px;font-family:var(--cond);font-size:1rem;letter-spacing:.05em;color:var(--dim2)}
+
+.shot{position:relative}
+.shot .frame{position:relative;aspect-ratio:4/3;overflow:hidden;box-shadow:0 34px 70px rgba(0,0,0,.6);clip-path:polygon(26px 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%,0 26px)}
+.shot .frame img{width:100%;height:100%;object-fit:cover}
+.seal{position:absolute;left:-46px;bottom:-40px;width:158px;height:158px}
+.seal .ring{position:absolute;top:0;left:0;width:100%;height:100%;animation:spin 26s linear infinite}
+.seal .ring text{font-family:var(--cond);font-weight:700;font-size:12.4px;letter-spacing:.19em;fill:#231803;text-transform:uppercase}
+.seal .disc{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background:var(--mostarda)}
+.seal .core{position:absolute;top:30px;left:30px;width:calc(100% - 60px);height:calc(100% - 60px);border-radius:50%;background:var(--char);display:grid;place-content:center;text-align:center;box-shadow:inset 0 0 0 2px var(--mostarda)}
+.seal .core b{display:block;font-family:var(--disp);font-size:2.15rem;line-height:.85;color:var(--mostarda)}
+.seal .core i{display:block;font-style:normal;font-family:var(--cond);font-weight:700;font-size:.72rem;letter-spacing:.2em;color:var(--paper)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.seal .ring{animation:none}}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:54px 62px}
+  .shot{order:-1}
+  .seal{left:auto;right:-10px;bottom:10px;width:118px;height:118px}
+  .seal .core{top:24px;left:24px;width:calc(100% - 48px);height:calc(100% - 48px)}
+  .seal .core b{font-size:1.7rem}
+}
+
+/* ---------- stats ---------- */
+.stats{border-bottom:1px solid var(--line);background:var(--char2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 22px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-family:var(--disp);font-size:2.1rem;line-height:1;color:var(--mostarda)}
+.stat span{display:block;margin-top:7px;font-family:var(--cond);font-weight:600;font-size:.9rem;letter-spacing:.11em;text-transform:uppercase;color:var(--dim)}
+@media(max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+section{padding-block:82px}
+/* these three carry their own vertical padding on .wrap — keep the generic rule off */
+.hero,.stats,.band{padding-block:0}
+.s-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:40px}
+.s-head h2{font-size:clamp(2.1rem,4.4vw,3.2rem)}
+.s-head .eyebrow{display:block;margin-bottom:12px}
+@media(max-width:760px){.s-head{flex-direction:column;align-items:flex-start;gap:18px}}
+
+/* ---------- destaques ---------- */
+.picks{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pick{background:var(--char2);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.pick:hover{transform:translateY(-5px);border-color:var(--mostarda)}
+.pick .ph{position:relative;aspect-ratio:1/1;overflow:hidden}
+.pick .ph img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:12px;left:12px;background:var(--brasa);color:#fff;font-family:var(--cond);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
+.tag.m{background:var(--mostarda);color:#231803}
+.pick .bd{padding:18px 18px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pick h3{font-size:1.34rem}
+.pick p{font-size:.9rem;color:var(--dim);line-height:1.5;flex:1}
+.pick .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+.price{font-family:var(--cond);font-weight:700;font-size:1.5rem;letter-spacing:.01em;color:var(--mostarda);font-variant-numeric:tabular-nums}
+@media(max-width:1000px){.picks{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.picks{grid-template-columns:1fr}}
+
+/* ---------- cardapio ficha ---------- */
+.menu-sec{background:var(--char2);border-block:1px solid var(--line)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{font-family:var(--cond);font-weight:600;font-size:1rem;letter-spacing:.11em;text-transform:uppercase;padding:10px 17px;background:transparent;color:var(--dim);border:1px solid var(--line);cursor:pointer;transition:.15s}
+.tab:hover{color:var(--paper)}
+.tab[aria-selected="true"]{background:var(--mostarda);border-color:var(--mostarda);color:#231803;font-weight:700}
+.ficha{background:var(--char);border:1px solid var(--line);padding:8px 0}
+.ficha .hd{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:18px 28px 14px;border-bottom:1px dashed var(--line)}
+.ficha .hd h3{font-size:1.5rem}
+.ficha .hd span{font-family:var(--cond);font-weight:600;font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim2);text-align:right}
+.items{list-style:none;margin:0;padding:6px 0}
+.items li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:15px 28px;border-bottom:1px dashed var(--line)}
+.items li:last-child{border-bottom:0}
+.items li:hover{background:var(--char2)}
+.it-n{font-family:var(--cond);font-weight:700;font-size:1.24rem;letter-spacing:.02em;text-transform:uppercase}
+.it-n em{font-style:normal;margin-left:9px;font-size:.7rem;letter-spacing:.14em;padding:3px 8px;background:var(--char3);color:var(--mostarda);vertical-align:2px;white-space:nowrap}
+.it-p{font-family:var(--cond);font-weight:700;font-size:1.28rem;color:var(--mostarda);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.it-d{grid-column:1/2;font-size:.9rem;color:var(--dim);line-height:1.5;max-width:62ch}
+.ficha .ft{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;border-top:1px dashed var(--line)}
+.ficha .ft span{font-family:var(--cond);font-size:.98rem;letter-spacing:.07em;color:var(--dim2)}
+@media(max-width:560px){.items li,.ficha .hd,.ficha .ft{padding-inline:18px}}
+
+/* ---------- combos ---------- */
+.combos{display:grid;grid-template-columns:1.15fr 1fr;gap:44px;align-items:center}
+.combos .frame{overflow:hidden;aspect-ratio:4/3;clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px)}
+.combos .frame img{width:100%;height:100%;object-fit:cover}
+.clist{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:0}
+.clist li{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 0;border-top:1px solid var(--line)}
+.clist li:last-child{border-bottom:1px solid var(--line)}
+.clist strong{font-family:var(--cond);font-weight:600;font-size:1.1rem;text-transform:uppercase;letter-spacing:.04em}
+@media(max-width:860px){.combos{grid-template-columns:1fr;gap:32px}}
+
+/* ---------- prova social ---------- */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:var(--char2);border:1px solid var(--line);padding:24px}
+.rev .st{color:var(--mostarda);letter-spacing:.2em;font-size:1rem}
+.rev q{display:block;margin:14px 0 16px;font-size:1rem;color:var(--paper);line-height:1.6;quotes:none}
+.rev .who{font-family:var(--cond);font-weight:600;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2)}
+.ph-note{display:inline-block;margin-top:14px;font-family:var(--cond);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--char);background:var(--dim2);padding:2px 8px}
+@media(max-width:860px){.revs{grid-template-columns:1fr}}
+
+/* ---------- unidades ---------- */
+.units-sec{background:var(--char2);border-block:1px solid var(--line)}
+.units{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.unit{background:var(--char);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:14px}
+.unit .top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.unit h3{font-size:1.55rem}
+.chip{font-family:var(--cond);font-weight:600;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+.unit address{font-style:normal;font-size:.96rem;color:var(--dim);line-height:1.55}
+.hours{list-style:none;margin:0;padding:0;font-family:var(--cond);font-size:1rem;letter-spacing:.03em;color:var(--dim);display:flex;flex-direction:column;gap:3px}
+.hours li{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+.hours b{color:var(--paper);font-weight:600}
+.unit .btn{margin-top:auto;align-self:flex-start}
+@media(max-width:760px){.units{grid-template-columns:1fr}}
+
+/* ---------- cta band ---------- */
+.band{background:var(--brasa);color:#fff}
+.band .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding-block:52px}
+.band h2{font-size:clamp(1.9rem,4vw,2.9rem);max-width:22ch}
+.band .btn{background:var(--char);color:var(--paper)}
+.band .btn:hover{background:#231a15}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:48px 40px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.f-grid h4{margin:0 0 14px;font-family:var(--cond);font-weight:700;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mostarda)}
+.f-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:.94rem;color:var(--dim)}
+.f-grid a{text-decoration:none;color:var(--dim)}
+.f-grid a:hover{color:var(--paper)}
+.legal{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);font-size:.86rem;color:var(--dim2);line-height:1.65;max-width:78ch}
+.legal b{color:var(--dim)}
+@media(max-width:760px){.f-grid{grid-template-columns:1fr;gap:28px}}
+</style>
+</head>
+<body>
+
+<p class="demo"><b>Prévia não oficial</b> &nbsp;·&nbsp; proposta de site criada por Jadir Freire para apresentação à Smart Burger. Não é o site oficial da marca.</p>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo"><span class="mk">SB</span><span class="wm">SMART<i>BURGER</i></span></a>
+    <nav>
+      <a href="#destaques">Destaques</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#combos">Combos</a>
+      <a href="#unidades">Unidades</a>
+    </nav>
+    <a class="btn small" href="#unidades">Pedir agora</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="h-kick"><em></em><span>Osasco · Carapicuíba · Alphaville · São Francisco</span></div>
+      <h1>O melhor burger de <u>Oz</u> e região</h1>
+      <p class="lede">Quinze anos no fogo, quatro unidades e um pão da casa que a gente não abre mão. Carne fresca, molhos feitos aqui dentro e aquele burger que já virou ponto de encontro da zona oeste.</p>
+      <div class="h-cta">
+        <a class="btn" href="#unidades">Pedir agora</a>
+        <a class="btn ghost" href="#cardapio">Ver cardápio</a>
+      </div>
+      <p class="h-note">Delivery e balcão · pedido mínimo R$ 30,00</p>
+    </div>
+    <div class="shot">
+      <div class="frame"><img src="img/hero-duplo.jpg" alt="Burger duplo com bacon, cheddar derretido e cebola roxa em pão brioche"></div>
+      <div class="seal" aria-hidden="true">
+        <div class="disc"></div>
+        <svg class="ring" viewBox="0 0 158 158"><defs><path id="rg" d="M79,79 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"></path></defs><text><textPath href="#rg" startOffset="0">Desde 2010 · Feito no fogo · Zona Oeste · </textPath></text></svg>
+        <div class="core"><b>15</b><i>anos</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>15</b><span>anos de casa</span></div>
+    <div class="stat"><b>4</b><span>unidades</span></div>
+    <div class="stat"><b>107 mil</b><span>no Instagram</span></div>
+    <div class="stat"><b>#9</b><span>de 770 em Osasco*</span></div>
+  </div>
+</section>
+
+<section id="destaques">
+  <div class="wrap">
+    <div class="s-head">
+      <div><span class="eyebrow">Os mais pedidos</span><h2>O que sai sem parar</h2></div>
+      <a class="btn ghost small" href="#cardapio">Cardápio completo</a>
+    </div>
+    <div class="picks">
+      <article class="pick">
+        <div class="ph"><span class="tag">Mais vendido</span><img src="img/smash-urban.jpg" alt="Smash Urban: dois hambúrgueres com american cheese, bacon e picles"></div>
+        <div class="bd"><h3>Smash Urban</h3><p>Dois hambúrgueres bovinos de 80 g, bacon, picles, american cheese e cebola caramelizada no pão da casa.</p><div class="row"><span class="price">R$ 44,90</span><a class="btn small" href="#unidades">Pedir</a></div></div>
+      </article>
+      <article class="pick">
+        <div class="ph"><span class="tag m">330 g de carne</span><img src="img/mdf.jpg" alt="MDF: burger com 330 g de carne, duplo cheddar e bacon"></div>
+        <div class="bd"><h3>MDF</h3><p>Nosso monstrinho: 330 g de carne, duplo cheddar da casa, bacon e picles de cebola.</p><div class="row"><span class="price">R$ 55,90</span><a class="btn small" href="#unidades">Pedir</a></div></div>
+      </article>
+      <article class="pick">
+        <div class="ph"><span class="tag m">Sugestão do chef</span><img src="img/mister-couve.jpg" alt="Mister Couve: burger com couve crispy, bacon e chutney de tomate"></div>
+        <div class="bd"><h3>Mister Couve</h3><p>Queijo, bacon, chutney mágico de tomate, couve crispy e maionese de gorgonzola.</p><div class="row"><span class="price">R$ 42,90</span><a class="btn small" href="#unidades">Pedir</a></div></div>
+      </article>
+      <article class="pick">
+        <div class="ph"><span class="tag">Clássico</span><img src="img/x-burger.jpg" alt="X Burger: cheeseburger da casa em pão brioche com gergelim"></div>
+        <div class="bd"><h3>X Burger</h3><p>O cheese burger da casa, simples do jeito certo, com a maionese artesanal à parte.</p><div class="row"><span class="price">R$ 33,90</span><a class="btn small" href="#unidades">Pedir</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="cardapio">
+  <div class="wrap">
+    <div class="s-head">
+      <div><span class="eyebrow">Cardápio</span><h2>Tudo que sai da chapa</h2></div>
+      <p class="lede" style="max-width:34ch;font-size:.95rem">Preços do delivery da unidade Osasco. Toque numa categoria para filtrar.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Categorias do cardápio">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-burgers" id="t-burgers">Burgers</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-entradas" id="t-entradas">Entradas</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-doces" id="t-doces">Sobremesas</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-bebidas" id="t-bebidas">Bebidas</button>
+    </div>
+
+    <div class="ficha" id="p-burgers" role="tabpanel" aria-labelledby="t-burgers">
+      <div class="hd"><h3>Burgers</h3><span>16 opções · pão da casa</span></div>
+      <ul class="items">
+        <li><span class="it-n">Smash Urban <em>MAIS VENDIDO</em></span><span class="it-p">R$ 44,90</span><span class="it-d">2 hambúrgueres bovinos de 80 g, bacon, picles, american cheese, cebola caramelizada, pão da casa. Acompanha maionese.</span></li>
+        <li><span class="it-n">MDF <em>330 G DE CARNE</em></span><span class="it-p">R$ 55,90</span><span class="it-d">Duplo cheddar da casa, bacon e picles de cebola.</span></li>
+        <li><span class="it-n">Pansexy</span><span class="it-p">R$ 45,90</span><span class="it-d">Hambúrguer bovino, queijo, pancetta picante, maionese de wasabi e salada verde com toque oriental, no pão da casa.</span></li>
+        <li><span class="it-n">New Tex</span><span class="it-p">R$ 45,90</span><span class="it-d">Hambúrguer bovino, bacon, cheddar, cebola roxa crua, Doritos e molho tex mex no pão especial.</span></li>
+        <li><span class="it-n">Original com Bacon</span><span class="it-p">R$ 44,90</span><span class="it-d">Hambúrguer, bacon, molho Original, queijo, cebola picada e alface juliana no pão da casa.</span></li>
+        <li><span class="it-n">Totoso</span><span class="it-p">R$ 43,90</span><span class="it-d">2 smash burgers de 80 g, provolone, bacon, tomate cereja assado, rúcula e molho tasty — aquele mesmo que você tá pensando.</span></li>
+        <li><span class="it-n">Xis Turbo</span><span class="it-p">R$ 43,90</span><span class="it-d">2 smash burgers de 80 g, gorgonzola, bacon, cebola empanada, geleia de pimenta e molho smart.</span></li>
+        <li><span class="it-n">X Bacon</span><span class="it-p">R$ 42,90</span><span class="it-d">Burger, queijo, bacon e maionese à parte.</span></li>
+        <li><span class="it-n">Mister Couve</span><span class="it-p">R$ 42,90</span><span class="it-d">Queijo, bacon, chutney mágico de tomate, couve crispy e maionese de gorgonzola.</span></li>
+        <li><span class="it-n">Quarter Smart</span><span class="it-p">R$ 42,90</span><span class="it-d">O clássico quarteirão, porém duplo: duas carnes de 80 g, american cheese, cebola picadinha, molho com picles, ketchup e mostarda.</span></li>
+        <li><span class="it-n">Original Burger</span><span class="it-p">R$ 41,90</span><span class="it-d">Hambúrguer, molho Original, queijo, cebola picada e alface juliana no pão da casa.</span></li>
+        <li><span class="it-n">X Salada</span><span class="it-p">R$ 40,90</span><span class="it-d">Hambúrguer bovino, queijo, alface, tomate e pão de hambúrguer especial.</span></li>
+        <li><span class="it-n">Smart BBQ</span><span class="it-p">R$ 40,90</span><span class="it-d">Hambúrguer, cheddar, bacon, molho BBQ, cebola empanada e picles.</span></li>
+        <li><span class="it-n">Chicken Smart</span><span class="it-p">R$ 39,90</span><span class="it-d">Frango empanado, alface americana, molho Original e catupiry.</span></li>
+        <li><span class="it-n">Vegan <em>VEGANO</em></span><span class="it-p">R$ 39,90</span><span class="it-d">Hambúrguer de grão-de-bico com aveia e limão, chutney picante de tomate, rúcula e cebola frita crocante no pão integral.</span></li>
+        <li><span class="it-n">X Burger</span><span class="it-p">R$ 33,90</span><span class="it-d">Cheese burger da casa com maionese artesanal.</span></li>
+      </ul>
+      <div class="ft"><span>Pedido mínimo R$ 30,00 · retirada ou entrega</span><a class="btn small" href="#unidades">Escolher unidade</a></div>
+    </div>
+
+    <div class="ficha" id="p-entradas" role="tabpanel" aria-labelledby="t-entradas" hidden>
+      <div class="hd"><h3>Entradas &amp; acompanhamentos</h3><span>pra dividir (ou não)</span></div>
+      <ul class="items">
+        <li><span class="it-n">Fritas Smart</span><span class="it-p">R$ 39,90</span><span class="it-d">Fritas crinkle com cheddar e bacon. Melhor no balcão — no delivery corre risco de murchar.</span></li>
+        <li><span class="it-n">Coxinha de frango com gorgonzola</span><span class="it-p">R$ 39,90</span><span class="it-d">6 unidades.</span></li>
+        <li><span class="it-n">Fake Chicken Flower <em>VEGETARIANO</em></span><span class="it-p">R$ 38,99</span><span class="it-d">Couve-flor empanada coberta de molho picante, com cenoura, salsão e maionese de dill.</span></li>
+        <li><span class="it-n">Nuggets com molho caipira</span><span class="it-p">R$ 31,90</span><span class="it-d">10 unidades.</span></li>
+        <li><span class="it-n">Fritas</span><span class="it-p">R$ 21,90</span><span class="it-d">Nossas fritas crinkle.</span></li>
+        <li><span class="it-n">Maionese artesanal extra</span><span class="it-p">R$ 4,80</span><span class="it-d">Potinho extra da maionese da casa.</span></li>
+      </ul>
+      <div class="ft"><span>Pedido mínimo R$ 30,00 · retirada ou entrega</span><a class="btn small" href="#unidades">Escolher unidade</a></div>
+    </div>
+
+    <div class="ficha" id="p-doces" role="tabpanel" aria-labelledby="t-doces" hidden>
+      <div class="hd"><h3>Sobremesas</h3><span>o final feliz</span></div>
+      <ul class="items">
+        <li><span class="it-n">Brownie de chocolate</span><span class="it-p">R$ 15,00</span><span class="it-d">Um mega brownie de 90 g.</span></li>
+      </ul>
+      <div class="ft"><span>Milk shakes e sorvetes entram aqui quando você mandar os preços</span><a class="btn small" href="#unidades">Escolher unidade</a></div>
+    </div>
+
+    <div class="ficha" id="p-bebidas" role="tabpanel" aria-labelledby="t-bebidas" hidden>
+      <div class="hd"><h3>Bebidas</h3><span>geladas</span></div>
+      <ul class="items">
+        <li><span class="it-n">Refrigerantes</span><span class="it-p">ver no pedido</span><span class="it-d">Lata 350 ml e garrafas. Sabores e preços aparecem na hora de montar o pedido.</span></li>
+        <li><span class="it-n">Água 500 ml</span><span class="it-p">ver no pedido</span><span class="it-d">Com e sem gás.</span></li>
+      </ul>
+      <div class="ft"><span>Preços de bebidas variam por unidade</span><a class="btn small" href="#unidades">Escolher unidade</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="combos">
+  <div class="wrap combos">
+    <div class="frame"><img src="img/combo.jpg" alt="Combo Smart Burger: burger, cesta de fritas e lata de Coca-Cola sobre tábua de madeira"></div>
+    <div>
+      <span class="eyebrow">Combos</span>
+      <h2 style="font-size:clamp(2rem,4.2vw,3rem);margin-top:12px">Burger + fritas + refri</h2>
+      <p class="lede" style="margin-top:16px">Todo combo fecha com batata crinkle e Coca-Cola lata 350 ml. A maionese à parte não vem inclusa.</p>
+      <ul class="clist">
+        <li><strong>X Salada + fritas + Coca-Cola</strong><span class="price">R$ 56,90</span></li>
+        <li><strong>Quarter + crinkle + Coca-Cola</strong><span class="price">R$ 56,90</span></li>
+        <li><strong>Frango empanado + crinkle + Coca-Cola</strong><span class="price">R$ 51,90</span></li>
+      </ul>
+      <div class="h-cta" style="margin-top:26px"><a class="btn" href="#unidades">Pedir combo</a></div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="s-head">
+      <div><span class="eyebrow">Quem come, volta</span><h2>#9 entre 770 restaurantes de Osasco</h2></div>
+      <p class="lede" style="max-width:34ch;font-size:.95rem">237 avaliações no TripAdvisor. No site final, os depoimentos vêm automaticamente do Google Meu Negócio.</p>
+    </div>
+    <div class="revs">
+      <div class="rev"><div class="st" aria-label="5 de 5 estrelas">★★★★★</div><q>Espaço reservado para um depoimento real do Google. É aqui que entra a avaliação mais recente da unidade.</q><div class="who">Cliente · Osasco</div><span class="ph-note">Texto de exemplo</span></div>
+      <div class="rev"><div class="st" aria-label="5 de 5 estrelas">★★★★★</div><q>As avaliações chegam sozinhas: o site puxa nota, texto e data direto da ficha do Google de cada unidade.</q><div class="who">Cliente · Carapicuíba</div><span class="ph-note">Texto de exemplo</span></div>
+      <div class="rev"><div class="st" aria-label="5 de 5 estrelas">★★★★★</div><q>Ninguém precisa digitar review na mão. Se a nota sobe, o site mostra na hora.</q><div class="who">Cliente · Alphaville</div><span class="ph-note">Texto de exemplo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="units-sec" id="unidades">
+  <div class="wrap">
+    <div class="s-head">
+      <div><span class="eyebrow">Unidades</span><h2>Peça na unidade mais perto</h2></div>
+      <p class="lede" style="max-width:34ch;font-size:.95rem">O botão leva direto para o sistema de pedidos que a casa já usa hoje — nada muda no fluxo da cozinha.</p>
+    </div>
+    <div class="units">
+      <article class="unit">
+        <div class="top"><h3>Osasco</h3><span class="chip">Anota Aí</span></div>
+        <address>Av. Sto. Antônio, 1.388 — Vila Osasco<br>Osasco / SP · (11) 3698-5858</address>
+        <ul class="hours">
+          <li><b>Ter — Qui</b><span>18h — 23h</span></li>
+          <li><b>Sex</b><span>18h — 00h</span></li>
+          <li><b>Sáb</b><span>12h — 00h</span></li>
+          <li><b>Dom</b><span>12h — 23h</span></li>
+        </ul>
+        <a class="btn" href="https://pedido.anota.ai/loja/smart-burger-1" target="_blank" rel="noopener">Pedir em Osasco</a>
+      </article>
+      <article class="unit">
+        <div class="top"><h3>Carapicuíba</h3><span class="chip">Cardápio digital</span></div>
+        <address>R. Padre Arnaldo, 95 — Vila Silviânia<br>Carapicuíba / SP</address>
+        <ul class="hours"><li><b>Horários</b><span>a confirmar</span></li></ul>
+        <a class="btn" href="https://pedido.anota.ai/loja/smart-burger-carapicuba" target="_blank" rel="noopener">Pedir em Carapicuíba</a>
+      </article>
+      <article class="unit">
+        <div class="top"><h3>Alphaville</h3><span class="chip">Anota Aí</span></div>
+        <address>Endereço a confirmar<br>Alphaville / SP</address>
+        <ul class="hours"><li><b>Horários</b><span>a confirmar</span></li></ul>
+        <a class="btn" href="https://pedido.anota.ai/loja/smart-burger-carapicuba-1" target="_blank" rel="noopener">Pedir em Alphaville</a>
+      </article>
+      <article class="unit">
+        <div class="top"><h3>São Francisco</h3><span class="chip">iFood</span></div>
+        <address>Vila Lageado<br>São Paulo / SP</address>
+        <ul class="hours"><li><b>Horários</b><span>conforme iFood</span></li></ul>
+        <a class="btn" href="https://www.ifood.com.br/delivery/sao-paulo-sp/smart-burger-sao-francisco-vila-lageado/b0989268-efe1-44e3-9136-d5f7a6bb739b" target="_blank" rel="noopener">Pedir no iFood</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Bateu a fome? A chapa já tá quente.</h2>
+    <a class="btn" href="#unidades">Fazer meu pedido</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#topo" style="margin-bottom:14px"><span class="mk">SB</span><span class="wm">SMART<i>BURGER</i></span></a>
+        <p class="lede" style="font-size:.94rem">A melhor e mais descolada hamburgueria de Oz e região. Desde 2010.</p>
+      </div>
+      <div>
+        <h4>Cardápio</h4>
+        <ul>
+          <li><a href="#destaques">Mais pedidos</a></li>
+          <li><a href="#cardapio">Burgers</a></li>
+          <li><a href="#combos">Combos</a></li>
+          <li><a href="#cardapio">Entradas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/smartburgeroficial" target="_blank" rel="noopener">@smartburgeroficial</a></li>
+          <li><a href="tel:+551136985858">(11) 3698-5858</a></li>
+          <li><a href="#unidades">4 unidades</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">
+      <b>Sobre esta página:</b> prévia de conceito criada por Jadir Freire para apresentar uma proposta de site próprio à Smart Burger. Não é o site oficial da marca e não possui vínculo com ela.
+      Nomes, descrições e preços foram lidos do cardápio público de delivery da unidade Osasco em setembro de 2026 e podem estar desatualizados. As fotos são as do próprio cardápio da casa, usadas apenas nesta demonstração.
+      Os depoimentos estão marcados como <b>texto de exemplo</b>. Os botões de pedido levam para o Anota Aí e o iFood que a casa já utiliza.
+      <br>* Posição #9 de 770 restaurantes em Osasco e 237 avaliações conforme TripAdvisor.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(t){
+    tabs.forEach(function(x){
+      var on=x===t, p=document.getElementById(x.getAttribute('aria-controls'));
+      x.setAttribute('aria-selected',on?'true':'false');
+      if(p){p.hidden=!on;}
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t);});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d){return;}
+      e.preventDefault();
+      var n=tabs[(i+d+tabs.length)%tabs.length];
+      n.focus(); show(n);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
